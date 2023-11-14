@@ -6,6 +6,6 @@ This webtool allows users to plot the genes that are temporally regulated during
 
 This webtool is open-source and free to use. The web tool works by running the Python programming language at backend to plot the time-series data, while the Streamlit framework is used to display the output graph.
 
-To use the webtool, enter a comma or new-line separated list of genes or select genes from the dropdown menu in the sidebar. Line plots for each gene found in the dataset will be plotted and made available for download as a zip file containing PDF figures for each gene.
+To use the webtool, enter a comma or new-line separated list of genes or select genes from the dropdown menu in the sidebar. Line plots for each gene found in the dataset will be plotted and made available for download as a zip file containing PDF figures for each gene. Genes that were not found will be shown in an expander.
 
 The app is jointly made by Clara Koh and Kuan Rong Chan based on the data published by Ong et al., eBioMedicine, 2021. We thank Jia Soon for providing the data on MDSC gene signatures that can be used to query against this database. For more details on what we do, feel free to visit us at kuanrongchan.com.
