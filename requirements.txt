@@ -1,0 +1,6 @@
+plotly>=5.5.0
+plotly-express
+streamlit
+numpy
+pandas
+regex
