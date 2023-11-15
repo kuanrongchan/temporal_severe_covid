@@ -6,6 +6,8 @@ from helper_functions.downloads import file_downloads
 from helper_functions.query_handler import str_to_list
 from helper_functions.plots import line_plot
 
+import base64
+
 st.title("Severe COVID-19 Temporally-Regulated Genes")
 
 with st.expander(label = "Show documentation", expanded=True):
@@ -19,12 +21,15 @@ with st.expander(label = "Show documentation", expanded=True):
                 
                 ## Usage
                 Users may query the dataset either by providing a comma-, or newline-separated list of genes or selecting from a dropdown menu in the sidebar.<br></br>
-                Genes that were not found will be shown in an expander.
+                Genes that were not found will be shown in an expander.<br></br> 
+                Myeloid-derived suppressor cell signatures mentioned in Table 1 of [Len et al., Viruses, 2023]() is displayed in a heatmap under the <b>MDSC Heatmap</b> tab for reference.
                 </div>
                 ''',
                 unsafe_allow_html=True)
+    
+queryPlots, heatmap = st.tabs(['Line Plots', 'MDSC Heatmap'])
 
-lsmeans = st.cache_data(pd.read_csv)("Severe_COVID-19_LSmeans.csv", index_col=0)
+lsmeans = st.cache_data(pd.read_csv)("data_files/Severe_COVID-19_LSmeans.csv", index_col=0)
 possible_genes = sorted(lsmeans.index.to_list())
 
 queryExp = st.sidebar.expander("Query options", expanded = True)
@@ -48,8 +53,19 @@ if len(combined_list) != len(confirmIn):
 
 if len(confirmIn) != 0:
     outFig = line_plot(lsmeans, confirmIn)
-    _ = [st.plotly_chart(v, theme=None) for k,v in outFig.items()]
-    file_downloads.zip_imgs(file_downloads.plots_to_buffer(outFig, graph_module="plotly", format = 'pdf'), format = "pdf", zipfilename="line_plots.zip")
+    _ = [queryPlots.plotly_chart(v, theme=None) for k,v in outFig.items()]
+    with queryPlots:
+        file_downloads.zip_imgs(file_downloads.plots_to_buffer(outFig, graph_module="plotly", format = 'pdf'), format = "pdf", zipfilename="line_plots.zip")
     
 else:
     st.warning("Please enter a gene in the sidebar or select from the dropdown menu.", icon = '⬅️')
+
+
+with open("data_files/mdscSigclustermap.pdf", "rb") as f:
+    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+    # Embedding PDF in HTML
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf" style="border:none;"></iframe>'
+
+    # Displaying File
+    heatmap.markdown(pdf_display, unsafe_allow_html=True)
