@@ -102,9 +102,9 @@ class DLs():
                 v.savefig(buf, format = format, bbox_inches = 'tight', dpi = 300)
             elif graph_module == "plotly":
                 fig = px.scatter(x=[0,1,2,3,4], y=[0,1,4,5,2])
-                fig.write_image(buf, format = format)
+                fig.write_image(buf, format = format, engine = 'kaleido')
                 buf.flush()
-                v.write_image(buf, format = format)
+                v.write_image(buf, format = format, engine = 'kaleido')
             tmp[k] = buf.getbuffer()
         return tmp
 file_downloads = DLs()
