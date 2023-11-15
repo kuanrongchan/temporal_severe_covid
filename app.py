@@ -6,7 +6,7 @@ from helper_functions.downloads import file_downloads
 from helper_functions.query_handler import str_to_list
 from helper_functions.plots import line_plot
 
-st.title("COVID-19 Temporally-Regulated Genes")
+st.title("Severe COVID-19 Temporally-Regulated Genes")
 
 with st.expander(label = "Show documentation", expanded=True):
     st.markdown('''
@@ -47,7 +47,7 @@ if len(combined_list) != len(confirmIn):
     
 
 if len(confirmIn) != 0:
-    outFig = line_plot(lsmeans, confirmIn)
+    outFig = line_plot(Normalised Expression, confirmIn)
     _ = [st.plotly_chart(v, theme=None) for k,v in outFig.items()]
     file_downloads.zip_imgs(file_downloads.plots_to_buffer(outFig, graph_module="plotly", format = 'pdf'), format = "pdf", zipfilename="line_plots.zip")
     
