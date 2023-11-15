@@ -4,9 +4,9 @@ import numpy as np
 
 from helper_functions.downloads import file_downloads
 from helper_functions.query_handler import str_to_list
-from helper_functions.plots import line_plot
+from helper_functions.plots import line_plot, mdsc_heatmap
 
-import base64
+# import base64
 
 st.title("Severe COVID-19 Temporally-Regulated Genes")
 
@@ -60,12 +60,12 @@ if len(confirmIn) != 0:
 else:
     st.warning("Please enter a gene in the sidebar or select from the dropdown menu.", icon = '⬅️')
 
+st.pyplot(mdsc_heatmap(lsmeans))
+# with open("data_files/mdscSigclustermap.pdf", "rb") as f:
+#     base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
-with open("data_files/mdscSigclustermap.pdf", "rb") as f:
-    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+#     # Embedding PDF in HTML
+#     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf" style="border:none;"></iframe>'
 
-    # Embedding PDF in HTML
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf" style="border:none;"></iframe>'
-
-    # Displaying File
-    heatmap.markdown(pdf_display, unsafe_allow_html=True)
+#     # Displaying File
+#     heatmap.markdown(pdf_display, unsafe_allow_html=True)
