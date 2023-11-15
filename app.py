@@ -47,7 +47,7 @@ if len(combined_list) != len(confirmIn):
     
 
 if len(confirmIn) != 0:
-    outFig = line_plot(Normalised Expression, confirmIn)
+    outFig = line_plot(lsmeans, confirmIn)
     _ = [st.plotly_chart(v, theme=None) for k,v in outFig.items()]
     file_downloads.zip_imgs(file_downloads.plots_to_buffer(outFig, graph_module="plotly", format = 'pdf'), format = "pdf", zipfilename="line_plots.zip")
     
