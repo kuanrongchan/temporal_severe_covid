@@ -1,5 +1,6 @@
 plotly
+plotly-express
 streamlit
 numpy
 pandas
-kaleido==0.1.*
+kaleido
