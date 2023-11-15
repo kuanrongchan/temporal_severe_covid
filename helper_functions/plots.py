@@ -8,7 +8,6 @@ import pandas as pd
 import numpy as np
 import math
 import streamlit as st
-import kaleido
 
 def line_plot(dataset, geneList):
     # Plot collection
