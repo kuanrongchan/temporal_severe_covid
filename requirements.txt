@@ -4,3 +4,5 @@ streamlit
 numpy
 pandas
 kaleido
+seaborn
+matplotlib
