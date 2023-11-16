@@ -34,36 +34,15 @@ def line_plot(dataset, geneList):
     return plots
 
 def mdsc_heatmap(dataset):
-    #Generate example dataset (random)
-    df = pd.DataFrame(['GroupA'] * 5 + ['GroupB'] * 5, columns=['AB'])
-    df['CD'] = ['C'] * 3 + ['D'] * 3 + ['G'] * 4
-    df['EF'] = ['E'] * 6 + ['F'] * 2 + ['H'] * 2
-    df['F'] = np.random.normal(0, 1, 10)
-    df.index = ['sample' + str(i) for i in range(1, df.shape[0] + 1)]
-    df_box = pd.DataFrame(np.random.randn(10, 4), columns=['Gene' + str(i) for i in range(1, 5)])
-    df_box.index = ['sample' + str(i) for i in range(1, df_box.shape[0] + 1)]
-    df_bar = pd.DataFrame(np.random.uniform(0, 10, (10, 2)), columns=['TMB1', 'TMB2'])
-    df_bar.index = ['sample' + str(i) for i in range(1, df_box.shape[0] + 1)]
-    df_scatter = pd.DataFrame(np.random.uniform(0, 10, 10), columns=['Scatter'])
-    df_scatter.index = ['sample' + str(i) for i in range(1, df_box.shape[0] + 1)]
-    df_heatmap = pd.DataFrame(np.random.randn(30, 10), columns=['sample' + str(i) for i in range(1, 11)])
-    df_heatmap.index = ["Fea" + str(i) for i in range(1, df_heatmap.shape[0] + 1)]
-    df_heatmap.iloc[1, 2] = np.nan
-
-    df_rows = df_heatmap.apply(lambda x:x.name if x.sample4 > 0.5 else None,axis=1)
-    df_rows=df_rows.to_frame(name='Selected')
-    df_rows['XY']=df_rows.index.to_series().apply(lambda x:'A' if int(x.replace('Fea',''))>=15 else 'B')
-
-
-    with open("./M-MDSC_signature.txt", 'r') as f:
+    with open("data_files/M-MDSC_signature.txt", 'r') as f:
         Mmdsc = f.readlines()
         Mmdsc = [i.replace("\n", "") for i in Mmdsc]
     
-    with open("./PMN-MDSC_signature.txt", 'r') as f:
+    with open("data_files/PMN-MDSC_signature.txt", 'r') as f:
         PMNmdsc = f.readlines()
         PMNmdsc = [i.replace("\n", "") for i in PMNmdsc]
     
-    with open("./overlapping_signature.txt", 'r') as f:
+    with open("data_files/overlapping_signature.txt", 'r') as f:
         overlap = f.readlines()
         overlap = [i.replace("\n", "") for i in overlap]
 
