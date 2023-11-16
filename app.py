@@ -60,7 +60,7 @@ if len(confirmIn) != 0:
 else:
     st.warning("Please enter a gene in the sidebar or select from the dropdown menu.", icon = '⬅️')
 
-st.pyplot(mdsc_heatmap(lsmeans))
+heatmap.pyplot(mdsc_heatmap(lsmeans))
 # with open("data_files/mdscSigclustermap.pdf", "rb") as f:
 #     base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
