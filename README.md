@@ -2,6 +2,8 @@
 
 ![temporal_dynamics](https://github.com/kuanrongchan/temporal_severe_covid/assets/91276553/df27d352-10ff-4687-850e-592c869342b8)
 
+[![DOI](https://zenodo.org/badge/443649989.svg)](https://zenodo.org/doi/10.5281/zenodo.7114839)
+
 The running instance of this webtool may be found at https://temporal-severe-covid.streamlit.app.
 This webtool allows users to plot the genes that are temporally regulated during severe COVID-19 as described in the publication by Ong et al., eBioMedicine, 2021 (https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(21)00055-4/fulltext). The data plotted is based on 6 severe or moderately severe patients, and daily bloods were taken from day -4 to day 13 post respiratory nadir. Day 0 indicates day of respiratory nadir, where peak symptoms were documented. Out of 29,405 genes, 4,831 genes were temporally regulated, as determined by extraction and analysis of differential gene expression (EDGE) (FDR-adjusted p-value < 0.05; q-value < 0.05; Benjamini-Hochberg step-up procedure).
 
