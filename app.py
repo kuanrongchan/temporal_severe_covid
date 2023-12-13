@@ -15,7 +15,8 @@ with st.expander(label = "Show documentation", expanded=True):
                 <div style="text-align: justify;">
                 This webtool allows users to plot the genes that are temporally regulated during severe COVID-19 as described in the publication by
                 <a href=https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(21)00055-4/fulltext>Ong et al., eBioMedicine, 2021</a>.<br></br>
-                The data plotted is based on 6 severe or moderately severe patients, and daily bloods were taken from day -4 to day 13 post respiratory nadir.
+                The data plotted is based on 6 severe or moderately severe patients, and daily bloods were taken from day -4 to day 13 post respiratory nadir, 
+                which is defined by low (<95%) arterial oxygen levels and supplemental oxygen administration (non-invasive ventilation or mechanical ventilation) required.<br><br>
                 Day 0 indicates day of respiratory nadir, where peak symptoms were documented. 
                 Out of 29,405 genes, 4,831 genes were temporally regulated, as determined by extraction and analysis of differential gene expression (EDGE) (FDR-adjusted p-value < 0.05; q-value < 0.05; Benja-mini-Hochberg step-up procedure).
                 
