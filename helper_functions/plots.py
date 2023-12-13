@@ -23,7 +23,7 @@ def line_plot(dataset, geneList):
                                    mode='lines',
                                    name = gene,
                                    line = dict(color = 'coral', width = 3),
-                                   hovertemplate="Day %{x} relative to nadir<br>LSMeans %{y:.3f}"))
+                                   hovertemplate="Day %{x} relative to respiratory nadir<br>LSMeans %{y:.3f}"))
         fig.update_layout(title = dict(text = f"<b>{gene}</b>", x = 0.5, font= dict(size = 18, family = 'sans-serif')),
                           xaxis = dict(title = "Day relative to nadir", tickvals = np.arange(-4, 14, 1)),
                           yaxis = dict(title = "LSMeans", range = [min_max[0], min_max[1]]),
