@@ -34,13 +34,13 @@ lsmeans = st.cache_data(pd.read_csv)("data_files/Severe_COVID-19_LSmeans.csv", i
 possible_genes = sorted(lsmeans.index.to_list())
 
 queryExp = st.sidebar.expander("Query options", expanded = True)
-geneQuery = queryExp.text_area("Enter a list of gene symbols (comma or new line-separated)") # accepts user list
+geneQuery = queryExp.text_area("Enter a list of gene symbols (comma or new line-separated)", value = 'HLA-DRA,') # accepts user list
 
 with queryExp:
     userGeneList = str_to_list(geneQuery)
 
 # don't know what genes to use? Have multi-select options...
-geneMultiselect = queryExp.multiselect("Not sure what genes to input? Select genes here 👇", options = possible_genes, default = possible_genes[0:4])
+geneMultiselect = queryExp.multiselect("Not sure what genes to input? Select genes here 👇", options = possible_genes, default = ['HLA-DRA'])
 
 combined_list = set(userGeneList).union(set(geneMultiselect))
 confirmIn = sorted([i for i in possible_genes if i in combined_list])
