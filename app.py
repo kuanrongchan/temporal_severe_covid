@@ -18,7 +18,7 @@ with st.expander(label = "Show documentation", expanded=True):
                 The data plotted is based on 6 severe or moderately severe patients, and daily bloods were taken from day –4 to day 13 post respiratory nadir, 
                 which is defined by low (<95%) arterial oxygen levels and supplemental oxygen administration (non-invasive ventilation or mechanical ventilation) required.<br><br>
                 Day 0 indicates day of respiratory nadir, where peak symptoms were documented. 
-                Out of 29,405 genes, 4,831 genes were temporally regulated, as determined by extraction and analysis of differential gene expression (EDGE) (FDR-adjusted p-value < 0.05; q-value < 0.05; Benja-mini-Hochberg step-up procedure).
+                Out of 29,405 genes, 4831 genes were temporally regulated, as determined by extraction and analysis of differential gene expression (EDGE) (FDR-adjusted p-value < 0.05; q-value < 0.05; Benja-mini-Hochberg step-up procedure).
                 
                 ## Usage
                 Users may query the dataset either by providing a comma-, or newline-separated list of genes or selecting from a dropdown menu in the sidebar.<br></br>
